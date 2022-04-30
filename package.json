@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsc && webpack && npm start",
     "start": "node ./index.js",
-    "save": "tsc && webpack && git add . && git commit -m \"v1.0.0\" && git push heroku master --force"
+    "save": "tsc && webpack && git add . && git commit -m \"v1.0.0\" && git branch -M main && git push -u origin main && git push heroku master --force"
   },
   "author": "Vlad",
   "license": "ISC",
