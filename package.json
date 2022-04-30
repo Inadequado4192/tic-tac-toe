@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && webpack && node ./index.js"
+    "start": "tsc && webpack && node ./index.js",
+    "save": "git add . && git commit -m \"v1.0.0\" && git push heroku main && git push heroku master --force"
   },
   "author": "Vlad",
   "license": "ISC",
@@ -18,5 +19,8 @@
     "ts-loader": "^9.2.9",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
+  },
+  "engines": {
+    "node": "16.15.0"
   }
 }
