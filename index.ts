@@ -5,7 +5,7 @@ import { NextTurn, StartGameResult, TurnResult } from "./g";
 
 
 const app = express();
-let server = app.listen(5000, () => {
+let server = app.listen(process.env.PORT || 5000, () => {
     console.log("Site: http://localhost:5000/")
 });
 
@@ -106,7 +106,7 @@ class Lobby {
             if (c != this.matrix[y][x]) break;
             if (x == 2) return "win";
         }
-        
+
         main: for (let y = 0; y < 3; y++) {
             for (let x = 0; x < 3; x++)
                 if (this.matrix[y][x] == " ") break main;
