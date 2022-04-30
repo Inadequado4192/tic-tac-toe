@@ -37,7 +37,7 @@ export namespace Game {
         playing = false;
         // lobbyId = null;
         char = null;
-        yourTurn = null;
+        yourTurn = false;
 
         show(mainMenuDiv);
         gameField.innerHTML = "";

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const socket_io_1 = require("socket.io");
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
-let server = app.listen(5000, () => {
+let server = app.listen(process.env.PORT || 5000, () => {
     console.log("Site: http://localhost:5000/");
 });
 const io = new socket_io_1.Server(server);
