@@ -1,0 +1,163 @@
+:root {
+    --bg  : #010101;
+    --text: #EEE;
+}
+
+* {
+    box-sizing : border-box;
+    outline    : none;
+    color      : var(--text);
+    user-select: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size  : 20px;
+}
+
+body {
+    margin          : 0;
+    background-color: var(--bg);
+    height          : 100vh;
+}
+
+button {
+    background: none;
+    border    : 2px solid var(--text);
+    padding   : 10px 30px;
+    cursor    : pointer;
+    transition: .2s;
+}
+
+button:not(:disabled):hover {
+    background: var(--text);
+    color     : var(--bg);
+}
+
+button:disabled {
+    opacity: .5;
+    cursor : default;
+}
+
+
+
+
+body>div {
+    display: none;
+    height : 100%;
+}
+
+.show {
+    display: flex !important;
+}
+
+#main-menu {
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+}
+
+/* #main-menu button {
+    font-size: 20px;
+} */
+
+/* .disconnected #main-menu #start-game {} */
+
+#opponent-disconnect-alert,
+#reconnect-alert {
+    position: absolute;
+    top     : 10px;
+    left    : 50%;
+
+    transform    : translate(-50%, calc(-100% - 10px));
+    border       : 2px solid;
+    border-radius: 0 0 10px 10px;
+    padding      : 10px 40px;
+    transition   : .2s;
+
+    background-color: var(--bg);
+}
+
+#opponent-disconnect-alert._show,
+body.disconnected #reconnect-alert {
+    transform: translate(-50%, 0);
+}
+
+
+#wait-player {
+    justify-content: center;
+    align-items    : center;
+}
+
+#wait-player h1 {
+    font-size: 40px;
+}
+
+
+#game {
+    justify-content: center;
+    align-items    : center;
+}
+
+#game #field {
+    position: relative;
+    display : grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    width : 300px;
+    height: 300px;
+}
+
+#game #field>div {
+    position: relative;
+    width   : 100px;
+    height  : 100px;
+    border  : 2px solid;
+}
+
+#game #field>div.o::before,
+#game #field>div.x::before,
+#game #field>div.x::after {
+    content   : "";
+    position  : absolute;
+    left      : 50%;
+    top       : 50%;
+    display   : block;
+    background: var(--text);
+    width     : 100%;
+    height    : 4px;
+    transform : translate(-50%, -50%);
+}
+
+#game #field>div.x::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#game #field>div.x::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#game #field>div.o::before {
+    width        : 75%;
+    height       : 75%;
+    border       : 4px solid var(--text);
+    border-radius: 100%;
+    background   : none;
+}
+
+#game #field::before {
+    content  : "Your Turn";
+    position : absolute;
+    left     : 50%;
+    display  : block;
+    transform: translate(-50%, calc(-100% - 20px));
+
+    border       : 2px solid;
+    padding      : 5px 40px;
+    border-radius: 10px 10px 0 0;
+    white-space  : nowrap;
+
+    transition: .2s;
+    opacity: 0;
+}
+#game #field.your-turn::before {
+    opacity: 1;
+}

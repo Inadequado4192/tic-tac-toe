@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ESNext",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "strictNullChecks": true,
+        "strict": true,
+        "downlevelIteration": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "moduleResolution": "Node"
+    },
+    "files": ["./index.ts"],
+    "exclude": ["node_modules"]
+}
